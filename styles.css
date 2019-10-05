@@ -1,0 +1,68 @@
+/* 
+* is for Selecting all elements
+*, *::before, *after -- we select all our elements, including before elements and our after elements
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Saira+Stencil+One');
+
+*, *::before, *::after{
+	box-sizing: border-box; 
+	font-family: 'Saira Stencil One';
+	font-weight: normal; /* bold ... lighter ... */
+}
+
+body {
+	padding: 0;/* space btw the content and the border of the div o container */
+	margin: 0; /* creates space around elements, outside of any defined borders.*/
+	background: linear-gradient(to right, #00FF00, #E6E6E6, #FA5858, #329938); /* set all the background properties in one declaration */
+}
+
+.calculator-grid {
+	display: grid;  /* specifies the display behavior of an element */
+	justify-content: center;
+	align-content: center;
+	min-height: 100vh;
+	grid-template-columns: repeat(4, 100px); /* four columns of 100px, we can make it "auto" repeat(4, auto)*/
+	grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button { /* we select all the button in the of the grid */
+	cursor: pointer; /*type of cursor*/
+	font-size: 2rem; 
+	border: 1px solid white; /* border btw operators */
+	outline: none;
+	background-color: rgba(255, 255, 255, .7);
+}
+
+.calculator-grid > button:hover { /* select elements when you mouse over them. */
+	background-color: rgba(255, 255, 255, .9);
+	text-decoration-line: underline;
+	text-decoration-style: solid;
+	text-decoration-color: blue;
+}
+
+.span-two {
+	grid-column: span 2; /* specifies a grid item's size and location in a grid layout*/
+}
+
+.output {
+	grid-column: 1 / -1; 
+	background-color: rgba(0, 0, 0, .75); 
+	display: flex;
+	align-items:  flex-end;
+	justify-content: space-around;
+	flex-direction: column;
+	padding: 10px;
+	word-wrap: break-word;/* Allow long words to be able to break and wrap onto the next line */
+	word-break: break-all; /* break words at any character */
+}
+
+.output .previous-operand {
+	color: rgba(255, 255, 255, .75);
+	font-size: 1.5rem;
+}
+
+.output .current-operand {
+	color: white;
+	font-size: 2.5rem;
+}
